@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2269201259911765035}
   - component: {fileID: 2269201259911765034}
   - component: {fileID: 2269201259911765033}
+  - component: {fileID: 8425662153805804607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -176,3 +177,15 @@ MonoBehaviour:
   enableDoubleJump: 1
   wallHitDoubleJumpOverride: 1
   isSprinting: 0
+--- !u!114 &8425662153805804607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269201259911765032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cd6100bf494dd4d96e95c97a3294ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
