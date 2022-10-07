@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     bool jumpKeyDown = false;
     bool canVariableJump = false;
     Rigidbody2D rigidbody2D;
+    
     void Start() 
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -51,13 +52,13 @@ public class PlayerInput : MonoBehaviour
         }
 
         bool onTheGround = isOnGround();
-        float vertical = Input.GetAxis("Vertical");
+        //float vertical = Input.GetAxis("Vertical");
 
         if(onTheGround)
         {
             canDoubleJump = true;
         }
-        if (vertical > 0.1f)
+        if (Input.GetButton("Jump"))
         {
             if(!jumpKeyDown)
             {
@@ -94,7 +95,7 @@ public class PlayerInput : MonoBehaviour
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(this.jumpSpeed * wallHitDirection, this.jumpSpeed);
+                        rigidbody2D.velocity = new Vector2((this.jumpSpeed / 2) * wallHitDirection, this.jumpSpeed);
 
                         jumpDur = 0.0f;
                         canVariableJump = true;
@@ -112,7 +113,10 @@ public class PlayerInput : MonoBehaviour
                 if(jumpDur < jumpDuration /1000)
                 {
                     rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, this.jumpSpeed);
+                    Debug.Log(transform.position.y);
+                    
                 }
+                
             }
         }
         else
