@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] float maxSpeed = 10;
+    [SerializeField] float maxSprintSpeed = 10;
     [SerializeField] float acceleration = 35;
     [SerializeField] float jumpSpeed = 8;
     [SerializeField] float jumpDuration;
     [SerializeField] bool enableDoubleJump = true;
     [SerializeField] bool wallHitDoubleJumpOverride = true;
+    [SerializeField] bool isSprinting;
 
     //internal checks
     bool canDoubleJump = true;
@@ -27,28 +29,66 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
+        if(Input.GetButton("Fire1"))
+        {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
 
         if (horizontal < -0.1f)
         {
-            if (rigidbody2D.velocity.x > -this.maxSpeed)
+            if(!isSprinting)
             {
-                rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
+                if (rigidbody2D.velocity.x > -this.maxSpeed)
+                {
+                    rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
+                }
+                else
+                {
+                    rigidbody2D.velocity = new Vector2(-this.maxSpeed, rigidbody2D.velocity.y);
+                }
             }
-            else
+            if(isSprinting)
             {
-                rigidbody2D.velocity = new Vector2(-this.maxSpeed, rigidbody2D.velocity.y);
+                if (rigidbody2D.velocity.x > -this.maxSprintSpeed)
+                {
+                    rigidbody2D.AddForce(new Vector2(-this.acceleration * 1.5f, 0.0f));
+                }
+                else
+                {
+                    rigidbody2D.velocity = new Vector2(-this.maxSprintSpeed, rigidbody2D.velocity.y);
+                }
             }
+            
         }
         else if(horizontal > 0.1f)
         {
-            if (rigidbody2D.velocity.x < this.maxSpeed)
+            if(!isSprinting)
             {
-                rigidbody2D.AddForce(new Vector2(this.acceleration, 0.0f));
+                if (rigidbody2D.velocity.x < this.maxSpeed)
+                {
+                    rigidbody2D.AddForce(new Vector2(this.acceleration, 0.0f));
+                }
+                else
+                {
+                    rigidbody2D.velocity = new Vector2(this.maxSpeed, rigidbody2D.velocity.y);
+                }
             }
-            else
+            else if(isSprinting)
             {
-                rigidbody2D.velocity = new Vector2(this.maxSpeed, rigidbody2D.velocity.y);
+                if (rigidbody2D.velocity.x < this.maxSprintSpeed)
+                {
+                    rigidbody2D.AddForce(new Vector2(this.acceleration * 1.5f, 0.0f));
+                }
+                else
+                {
+                    rigidbody2D.velocity = new Vector2(this.maxSprintSpeed, rigidbody2D.velocity.y);
+                }
             }
+            
         }
 
         bool onTheGround = isOnGround();

@@ -835,11 +835,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  maxSprintSpeed: 20
   acceleration: 35
   jumpSpeed: 12
   jumpDuration: 150
   enableDoubleJump: 1
   wallHitDoubleJumpOverride: 1
+  isSprinting: 0
 --- !u!70 &1107047734
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
