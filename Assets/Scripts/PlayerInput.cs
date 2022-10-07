@@ -153,7 +153,7 @@ public class PlayerInput : MonoBehaviour
                 if(jumpDur < jumpDuration /1000)
                 {
                     rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, this.jumpSpeed);
-                    Debug.Log(transform.position.y);
+                    
                     
                 }
                 
