@@ -16,7 +16,10 @@ public class Health : MonoBehaviour
     
     void Update()
     {
-        
+        if(lifePoints <= 0)
+        {
+            Die();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +29,7 @@ public class Health : MonoBehaviour
             StartCoroutine(Inmunity());
         }
 
-        if(collision.CompareTag("Bullet"))
+        if(collision.CompareTag("Enemy"))
         {
 
             GetDamage();
@@ -46,4 +49,8 @@ public class Health : MonoBehaviour
         yield return null;
     }
     
+    private void Die()
+    {
+        Destroy(this.gameObject);
+    }
 }
