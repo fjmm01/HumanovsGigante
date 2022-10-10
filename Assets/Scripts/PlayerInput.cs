@@ -15,15 +15,16 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] Animator anim;
 
     //internal checks
-    bool canDoubleJump = true;
+    
     float jumpDur;
     bool jumpKeyDown = false;
     bool canVariableJump = false;
     Rigidbody2D rigidbody2D;
+    public bool onTheGround;
     public bool leftWallHit;
     public bool rightWallHit;
-    public bool wallHit;
-    public int wallHitDirection = 0;
+
+
 
     void Start() 
     {
@@ -35,9 +36,10 @@ public class PlayerInput : MonoBehaviour
     
     void Update()
     {
+        onTheGround = isOnGround();
         float horizontal = Input.GetAxis("Horizontal");
         anim.SetFloat("speed", horizontal);
-        anim.SetBool("onTheGround", isOnGround());
+        anim.SetBool("onTheGround", onTheGround);
         if(Input.GetButton("Fire1"))
         {
             isSprinting = true;
@@ -102,31 +104,23 @@ public class PlayerInput : MonoBehaviour
             
         }
 
-        bool onTheGround = isOnGround();
+        
         //float vertical = Input.GetAxis("Vertical");
 
-        if(onTheGround)
-        {
-            canDoubleJump = true;
-            
-        }
-        else
-        {
-            canDoubleJump = false;
-        }
-        if (Input.GetButton("Jump"))
+        
+        if (Input.GetButton("Jump") && onTheGround)
         {
             
             if(!jumpKeyDown)
             {
                 jumpKeyDown = true;
-                if(onTheGround || (canDoubleJump && enableDoubleJump) || wallHitDoubleJumpOverride)
+                if(onTheGround || wallHitDoubleJumpOverride)
                 {
                     bool wallHit = false;
                     int wallHitDirection = 0;
 
-                    bool leftWallHit = isOnWallLeft();
-                    bool rightWallHit = isOnWallRight();
+                    bool leftWallHit = IsOnWallLeft();
+                    bool rightWallHit = IsOnWallRight();
 
                     if(horizontal != 0)
                     {
@@ -144,7 +138,7 @@ public class PlayerInput : MonoBehaviour
                     }
                     if(!wallHit)
                     {
-                        if(onTheGround || (canDoubleJump && enableDoubleJump))
+                        if(onTheGround)
                         {
                             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, this.jumpSpeed);
                             jumpDur = 0.0f;
@@ -159,11 +153,9 @@ public class PlayerInput : MonoBehaviour
                         canVariableJump = true;
                     }
 
-                    if(!onTheGround && !wallHit)
-                    {
-                        canDoubleJump = false;
-                    }
+                   
                 }
+                
             }
             else if(canVariableJump)
             {
@@ -176,20 +168,20 @@ public class PlayerInput : MonoBehaviour
                 }
                 
             }
-            Debug.Log(rigidbody2D.velocity);
+            else if(jumpKeyDown)
+            {
+
+            }
+            
         }
-        else
-        {
-            jumpKeyDown = false;
-            canVariableJump = false;
-        }
+        
         
        
     }
 
-    private bool isOnGround()
+    /*private bool isOnGround()
     {
-        float lengthToSearch = 0.1f;
+        float lengthToSearch = 0.3f;
         float colliderThreshold = 0.001f;
 
         Vector2 lineStart = new Vector2(this.transform.position.x, this.transform.position.y - this.GetComponent<SpriteRenderer>().bounds.extents.y - colliderThreshold);
@@ -198,8 +190,20 @@ public class PlayerInput : MonoBehaviour
         RaycastHit2D hit = Physics2D.Linecast(lineStart, vectorToSearch);
         return hit;
     }
+    */
+    private bool isOnGround()
+    {
+        if(rigidbody2D.velocity.y == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-    private bool isOnWallLeft()
+    /*private bool isOnWallLeft()
     {
         bool retVal = false;
         float lengthToSearch = 0.1f;
@@ -242,4 +246,31 @@ public class PlayerInput : MonoBehaviour
         }
         return retVal;
     }
+    */
+    private bool IsOnWallLeft()
+    {
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.2f);
+        if(hitLeft)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool IsOnWallRight()
+    {
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.2f);
+        if (hitRight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
