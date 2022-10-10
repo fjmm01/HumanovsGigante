@@ -19,10 +19,15 @@ public class PlayerInput : MonoBehaviour
     bool jumpKeyDown = false;
     bool canVariableJump = false;
     Rigidbody2D rigidbody2D;
-    
+    public bool leftWallHit;
+    public bool rightWallHit;
+    public bool wallHit;
+    public int wallHitDirection = 0;
+
     void Start() 
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        
     }
 
     
@@ -45,6 +50,8 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
+                    
+                    
                 }
                 else
                 {
@@ -113,6 +120,7 @@ public class PlayerInput : MonoBehaviour
 
                     if(horizontal != 0)
                     {
+                        
                         if(leftWallHit)
                         {
                             wallHit = true;
@@ -158,12 +166,14 @@ public class PlayerInput : MonoBehaviour
                 }
                 
             }
+            Debug.Log(rigidbody2D.velocity);
         }
         else
         {
             jumpKeyDown = false;
             canVariableJump = false;
         }
+       
     }
 
     private bool isOnGround()
@@ -171,7 +181,7 @@ public class PlayerInput : MonoBehaviour
         float lengthToSearch = 0.1f;
         float colliderThreshold = 0.001f;
 
-        Vector2 lineStart = new Vector2(this.transform.position.x, this.transform.position.y - this.GetComponentInChildren<SpriteRenderer>().bounds.extents.y - colliderThreshold);
+        Vector2 lineStart = new Vector2(this.transform.position.x, this.transform.position.y - this.GetComponent<SpriteRenderer>().bounds.extents.y - colliderThreshold);
         Vector2 vectorToSearch = new Vector2(this.transform.position.x, lineStart.y - lengthToSearch);
 
         RaycastHit2D hit = Physics2D.Linecast(lineStart, vectorToSearch);
@@ -184,7 +194,7 @@ public class PlayerInput : MonoBehaviour
         float lengthToSearch = 0.1f;
         float colliderThreshold = 0.01f;
 
-        Vector2 lineStart = new Vector2(this.transform.position.x - this.GetComponentInChildren<SpriteRenderer>().bounds.extents.x - colliderThreshold, this.transform.position.y);
+        Vector2 lineStart = new Vector2(this.transform.position.x - this.GetComponent<SpriteRenderer>().bounds.extents.x - colliderThreshold, this.transform.position.y);
         Vector2 vectorToSearch = new Vector2(lineStart.x - lengthToSearch, this.transform.position.y);
 
         RaycastHit2D hitLeft = Physics2D.Linecast(lineStart, vectorToSearch);
@@ -206,7 +216,7 @@ public class PlayerInput : MonoBehaviour
         float lengthToSearch = 0.1f;
         float colliderThreshold = 0.01f;
 
-        Vector2 lineStart = new Vector2(this.transform.position.x + this.GetComponentInChildren<SpriteRenderer>().bounds.extents.x + colliderThreshold, this.transform.position.y);
+        Vector2 lineStart = new Vector2(this.transform.position.x + this.GetComponent<SpriteRenderer>().bounds.extents.x + colliderThreshold, this.transform.position.y);
         Vector2 vectorToSearch = new Vector2(lineStart.x + lengthToSearch, this.transform.position.y);
 
         RaycastHit2D hitRight = Physics2D.Linecast(lineStart, vectorToSearch);
