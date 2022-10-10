@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] bool enableDoubleJump = true;
     [SerializeField] bool wallHitDoubleJumpOverride = true;
     [SerializeField] bool isSprinting;
+    [SerializeField] Animator anim;
 
     //internal checks
     bool canDoubleJump = true;
@@ -27,6 +28,7 @@ public class PlayerInput : MonoBehaviour
     void Start() 
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+       
         
     }
 
@@ -34,6 +36,8 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
+        anim.SetFloat("speed", horizontal);
+        anim.SetBool("onTheGround", isOnGround());
         if(Input.GetButton("Fire1"))
         {
             isSprinting = true;
@@ -104,9 +108,15 @@ public class PlayerInput : MonoBehaviour
         if(onTheGround)
         {
             canDoubleJump = true;
+            
+        }
+        else
+        {
+            canDoubleJump = false;
         }
         if (Input.GetButton("Jump"))
         {
+            
             if(!jumpKeyDown)
             {
                 jumpKeyDown = true;
@@ -162,7 +172,7 @@ public class PlayerInput : MonoBehaviour
                 {
                     rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, this.jumpSpeed);
                     
-                    
+    
                 }
                 
             }
@@ -173,6 +183,7 @@ public class PlayerInput : MonoBehaviour
             jumpKeyDown = false;
             canVariableJump = false;
         }
+        
        
     }
 
