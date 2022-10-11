@@ -23,8 +23,7 @@ public class PlayerInput : MonoBehaviour
     public bool onTheGround;
     public bool leftWallHit;
     public bool rightWallHit;
-
-
+    private bool canDoubleJump = true;
 
     void Start() 
     {
@@ -106,21 +105,24 @@ public class PlayerInput : MonoBehaviour
 
         
         //float vertical = Input.GetAxis("Vertical");
-
+        if(onTheGround)
+        {
+            canDoubleJump = true;
+        }
         
-        if (Input.GetButton("Jump") && onTheGround)
+        if (Input.GetButton("Jump"))
         {
             
             if(!jumpKeyDown)
             {
                 jumpKeyDown = true;
-                if(onTheGround || wallHitDoubleJumpOverride)
+                if(onTheGround ||(canDoubleJump && enableDoubleJump) || wallHitDoubleJumpOverride)
                 {
                     bool wallHit = false;
                     int wallHitDirection = 0;
 
-                    bool leftWallHit = IsOnWallLeft();
-                    bool rightWallHit = IsOnWallRight();
+                    leftWallHit = isOnWallLeft();
+                    rightWallHit = isOnWallRight();
 
                     if(horizontal != 0)
                     {
@@ -138,7 +140,7 @@ public class PlayerInput : MonoBehaviour
                     }
                     if(!wallHit)
                     {
-                        if(onTheGround)
+                        if(onTheGround || (canDoubleJump && enableDoubleJump))
                         {
                             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, this.jumpSpeed);
                             jumpDur = 0.0f;
@@ -151,6 +153,11 @@ public class PlayerInput : MonoBehaviour
 
                         jumpDur = 0.0f;
                         canVariableJump = true;
+                    }
+
+                    if(!onTheGround && !wallHit)
+                    {
+                        canDoubleJump = false;
                     }
 
                    
@@ -168,11 +175,13 @@ public class PlayerInput : MonoBehaviour
                 }
                 
             }
-            else if(jumpKeyDown)
-            {
-
-            }
             
+            
+        }
+        else
+        {
+            jumpKeyDown = false;
+            canVariableJump = false;
         }
         
         
@@ -203,7 +212,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    /*private bool isOnWallLeft()
+    private bool isOnWallLeft()
     {
         bool retVal = false;
         float lengthToSearch = 0.1f;
@@ -246,31 +255,38 @@ public class PlayerInput : MonoBehaviour
         }
         return retVal;
     }
-    */
-    private bool IsOnWallLeft()
+    
+    /*private bool IsOnWallLeft()
     {
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.2f);
-        if(hitLeft)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+        Vector2 length = new Vector2((transform.position.x - 0.2f), transform.position.y);
+        RaycastHit2D hitLeft = Physics2D.Linecast(transform.position, (Vector2)transform.position - length);
 
-    private bool IsOnWallRight()
-    {
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.2f);
-        if (hitRight)
-        {
-            return true;
-        }
-        else
+
+        if (hitLeft.collider.GetComponent<NoSlideJump>())
         {
             return false;
         }
+        else
+        {
+            return true;
+        }
     }
+    */
+
+    /*private bool IsOnWallRight()
+    {
+        Vector2 length = new Vector2((transform.position.x + 0.2f), transform.position.y);
+        RaycastHit2D hitRight = Physics2D.Linecast(transform.position, (Vector2)transform.position + length );
+        
+        if (hitRight.collider.GetComponent<NoSlideJump>())
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    */
 
 }
