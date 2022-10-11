@@ -37,7 +37,7 @@ public class PlayerInput : MonoBehaviour
     {
         onTheGround = isOnGround();
         float horizontal = Input.GetAxis("Horizontal");
-        anim.SetFloat("speed", horizontal);
+        anim.SetFloat("speedX", horizontal);
         anim.SetBool("onTheGround", onTheGround);
         if(Input.GetButton("Fire1"))
         {
