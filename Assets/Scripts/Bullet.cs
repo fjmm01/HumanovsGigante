@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, 3f);
+        
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
             
             return;
         }
-        if(collision.CompareTag("Player"))
+        if(collision)
         {
             Destroy(this.gameObject);
         }
