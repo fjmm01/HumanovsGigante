@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] float lifePoints;
     private float timer;
     public float time;
+    public GameObject shieldBack;
+    public GameObject shieldFront;
     void Start()
     {
         lifePoints = 1;
@@ -43,9 +45,13 @@ public class Health : MonoBehaviour
 
     IEnumerator Inmunity()
     {
+        shieldBack.SetActive(true);
+        shieldFront.SetActive(true);
         lifePoints = 1000000;
         yield return new WaitForSeconds(time);
         lifePoints = 1;
+        shieldBack.SetActive(false);
+        shieldFront.SetActive(false);
         yield return null;
     }
     
