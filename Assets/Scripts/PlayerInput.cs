@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] bool wallHitDoubleJumpOverride = true;
     [SerializeField] bool isSprinting;
     [SerializeField] Animator anim;
+    
 
     //internal checks
     
@@ -33,6 +34,7 @@ public class PlayerInput : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         dust = GetComponentInChildren<ParticleSystem>();
         dust2 = GetComponentInChildren<ParticleSystem>();
+        
 
 
     }
@@ -213,7 +215,7 @@ public class PlayerInput : MonoBehaviour
 
     /*private bool isOnGround()
     {
-        float lengthToSearch = 0.3f;
+        float lengthToSearch = 0.1f;
         float colliderThreshold = 0.001f;
 
         Vector2 lineStart = new Vector2(this.transform.position.x, this.transform.position.y - this.GetComponent<SpriteRenderer>().bounds.extents.y - colliderThreshold);
@@ -223,6 +225,7 @@ public class PlayerInput : MonoBehaviour
         return hit;
     }
     */
+    
     private bool isOnGround()
     {
         if(rigidbody2D.velocity.y == 0)
@@ -234,6 +237,7 @@ public class PlayerInput : MonoBehaviour
             return false;
         }
     }
+    
 
     private bool isOnWallLeft()
     {

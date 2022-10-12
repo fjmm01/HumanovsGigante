@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2269201259911765033}
   - component: {fileID: 8425662153805804607}
   - component: {fileID: 8971122053697242536}
+  - component: {fileID: 1889072682}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,15 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415648e68c8fa84ab4cdc784e6c6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  maxSprintSpeed: 20
-  acceleration: 35
+  maxSpeed: 15
+  maxSprintSpeed: 25
+  acceleration: 40
   jumpSpeed: 12
   jumpDuration: 150
   enableDoubleJump: 1
   wallHitDoubleJumpOverride: 1
   isSprinting: 0
-  anim: {fileID: 0}
+  anim: {fileID: 1889072682}
   onTheGround: 0
   leftWallHit: 0
   rightWallHit: 0
@@ -116,7 +117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifePoints: 0
-  time: 0
+  time: 5
+  shieldBack: {fileID: 2755336551737528525}
+  shieldFront: {fileID: 6946005413127683723}
 --- !u!212 &8971122053697242536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,6 +172,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1889072682
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269201259911765032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cc5dd07d40f85c46be431b0404b5f1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2755336551737528525
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7753007204203789373, guid: 6c85ba0e30eb0574781f8157037bf3f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.075
+      value: 0.015999999
       objectReference: {fileID: 0}
     - target: {fileID: 7753007204203789373, guid: 6c85ba0e30eb0574781f8157037bf3f5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -358,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7753007204203789373, guid: 6c85ba0e30eb0574781f8157037bf3f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.000000013419016
       objectReference: {fileID: 0}
     - target: {fileID: 7753007204203789373, guid: 6c85ba0e30eb0574781f8157037bf3f5, type: 3}
       propertyPath: m_LocalRotation.w

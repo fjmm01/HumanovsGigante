@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class Health : MonoBehaviour
     public float time;
     public GameObject shieldBack;
     public GameObject shieldFront;
+    public static bool winLevel;
+    public float timerWin = 0;
     void Start()
     {
         lifePoints = 1;
+        winLevel = false;
     }
 
     
@@ -35,6 +39,25 @@ public class Health : MonoBehaviour
         {
 
             GetDamage();
+        }
+
+        if(collision.CompareTag("Win"))
+        {
+            winLevel = true;
+            timer += Time.deltaTime;
+            if(timer > 5)
+            {
+                int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+                if(nextLevel == 6)
+                {
+                    SceneManager.LoadScene(0);
+                }
+                if(PlayerPrefs.GetInt("ReachedLevel",1) < nextLevel)
+                {
+                    PlayerPrefs.SetInt("ReachedLevel", nextLevel);
+                }
+                SceneManager.LoadScene(nextLevel);
+            }
         }
     }
 
