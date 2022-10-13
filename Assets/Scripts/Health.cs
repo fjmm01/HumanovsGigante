@@ -83,6 +83,7 @@ public class Health : MonoBehaviour
     {
         death.Play();
         Destroy(gameObject, 0.1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
     }
 }

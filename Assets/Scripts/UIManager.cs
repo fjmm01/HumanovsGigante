@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static bool isPaused;
+    
 
     public GameObject pauseMenu;
     private void Start()
     {
         isPaused = false;
+        
         
     }
     private void Update()
@@ -51,4 +53,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
+    
+   
 }

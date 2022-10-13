@@ -8,12 +8,21 @@ public class Misil : MonoBehaviour
     
     void Start()
     {
-        
+        Destroy(gameObject, 10f);
     }
 
     
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

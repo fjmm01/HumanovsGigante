@@ -63,7 +63,8 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
-                    
+                   
+
 
 
                 }
@@ -118,6 +119,7 @@ public class PlayerInput : MonoBehaviour
             }
             
         }
+        Debug.Log(rigidbody2D.velocity);
 
         
         //float vertical = Input.GetAxis("Vertical");
