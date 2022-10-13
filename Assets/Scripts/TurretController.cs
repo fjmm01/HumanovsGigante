@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class TurretController : MonoBehaviour
     Vector2 direction;
     [SerializeField] bool movementTurret;
     [SerializeField] bool torretaFija;
+    public GameObject shootingDirection;
 
     void Start()
     {
@@ -51,8 +53,15 @@ public class TurretController : MonoBehaviour
         }
         else
         {
-            Shoot();
+            direction = shootingDirection.transform.position - transform.position;
+            if (Time.time > nextTimetoFire)
+            {
+                nextTimetoFire = Time.time + 1 / fireRate;
+                Shoot();
+            }
+            
         }
+        
         
         
     }
