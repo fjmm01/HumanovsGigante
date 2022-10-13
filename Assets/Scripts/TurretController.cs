@@ -22,6 +22,7 @@ public class TurretController : MonoBehaviour
     Vector2 targetPosition;
     Vector2 direction;
     [SerializeField] bool movementTurret;
+    [SerializeField] bool torretaFija;
 
     void Start()
     {
@@ -42,9 +43,17 @@ public class TurretController : MonoBehaviour
             TurretMovement();
         }
         
-        targetPosition = player.transform.position;
-        direction = targetPosition - (Vector2)transform.position;
-        SetTarget();
+        if(torretaFija)
+        {
+            targetPosition = player.transform.position;
+            direction = targetPosition - (Vector2)transform.position;
+            SetTarget();
+        }
+        else
+        {
+            Shoot();
+        }
+        
         
     }
 
