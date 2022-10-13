@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2269201259911765033}
   - component: {fileID: 8425662153805804607}
   - component: {fileID: 8971122053697242536}
-  - component: {fileID: 1889072682}
+  - component: {fileID: 616203150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -75,8 +75,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0012650996, y: -0.008209837}
-  m_Size: {x: 0.17592093, y: 0.3046823}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.23, y: 0.28}
   m_Direction: 0
 --- !u!114 &2269201259911765033
 MonoBehaviour:
@@ -90,19 +90,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415648e68c8fa84ab4cdc784e6c6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 15
-  maxSprintSpeed: 25
-  acceleration: 40
-  jumpSpeed: 12
+  maxSpeed: 14
+  maxSprintSpeed: 10
+  acceleration: 15
+  jumpSpeed: 11
   jumpDuration: 150
   enableDoubleJump: 1
   wallHitDoubleJumpOverride: 1
   isSprinting: 0
-  anim: {fileID: 1889072682}
+  anim: {fileID: 616203150}
   onTheGround: 0
   leftWallHit: 0
   rightWallHit: 0
-  trail: {fileID: 0}
+  trail: {fileID: 1980161730977931397}
 --- !u!114 &8425662153805804607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   shieldBack: {fileID: 2755336551737528525}
   shieldFront: {fileID: 6946005413127683723}
   timerWin: 0
+  death: {fileID: 3476103388188440096}
 --- !u!212 &8971122053697242536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1889072682
+--- !u!95 &616203150
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -381,11 +382,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2556456050854946442, guid: 9b93c09a1e5b07c488e566b6829818de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.041
       objectReference: {fileID: 0}
     - target: {fileID: 2556456050854946442, guid: 9b93c09a1e5b07c488e566b6829818de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2556456050854946442, guid: 9b93c09a1e5b07c488e566b6829818de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -428,6 +429,11 @@ PrefabInstance:
 --- !u!4 &783850521747021666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2556456050854946442, guid: 9b93c09a1e5b07c488e566b6829818de, type: 3}
+  m_PrefabInstance: {fileID: 2997867786378099176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1980161730977931397 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3666038141252540781, guid: 9b93c09a1e5b07c488e566b6829818de, type: 3}
   m_PrefabInstance: {fileID: 2997867786378099176}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3132743537929902298
@@ -487,6 +493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6c6d5e99e3e784198fe0641be14ea3, type: 3}
+--- !u!198 &3476103388188440096 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1964735173550845690, guid: 5e6c6d5e99e3e784198fe0641be14ea3, type: 3}
+  m_PrefabInstance: {fileID: 3132743537929902298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8280940936124896554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6454346896935833072, guid: 5e6c6d5e99e3e784198fe0641be14ea3, type: 3}

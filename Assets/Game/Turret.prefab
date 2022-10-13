@@ -224,6 +224,10 @@ MonoBehaviour:
   bullet: {fileID: 7646522994058919333, guid: 70ebfcd0104d956448322b2b4d9e5e57, type: 3}
   shootingPoint: {fileID: 5707158547877035868}
   bulletSpeed: 75
+  waypointIndex: 0
+  waypoints: []
+  speed: 0
+  movementTurret: 0
 --- !u!1 &5707158547877035868
 GameObject:
   m_ObjectHideFlags: 0

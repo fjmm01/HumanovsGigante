@@ -516,11 +516,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!198 &568361941 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1980161730977931397, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-  m_PrefabInstance: {fileID: 2269201258840910108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,11 +926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415648e68c8fa84ab4cdc784e6c6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &1184229508 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3476103388188440096, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-  m_PrefabInstance: {fileID: 2269201258840910108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413581041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,22 +1062,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 783850521747021666, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.041
-      objectReference: {fileID: 0}
-    - target: {fileID: 783850521747021666, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980161730977931397, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980161730977931397, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2269201259911765028, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1136,17 +1110,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2269201259911765033, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: trail
-      value: 
-      objectReference: {fileID: 568361941}
-    - target: {fileID: 3476103388188440096, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425662153805804607, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: death
-      value: 
-      objectReference: {fileID: 1184229508}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
