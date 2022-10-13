@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 848663604}
-  brightnessSlider: {fileID: 0}
+  brightnessSlider: {fileID: 613659933}
 --- !u!4 &557462398
 Transform:
   m_ObjectHideFlags: 0
