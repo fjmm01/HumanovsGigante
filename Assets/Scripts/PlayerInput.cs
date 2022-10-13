@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour
         {
             isSprinting = false;
         }
-        if(horizontal == 0)
+        if(horizontal == 0 && onTheGround)
         {
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
         }
