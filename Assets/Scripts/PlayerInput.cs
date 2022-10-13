@@ -52,7 +52,10 @@ public class PlayerInput : MonoBehaviour
         {
             isSprinting = false;
         }
-
+        if(horizontal == 0)
+        {
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+        }
         if (horizontal < -0.1f)
         {
             if(!isSprinting)

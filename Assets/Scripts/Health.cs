@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public GameObject shieldFront;
     public static bool winLevel;
     public float timerWin = 0;
+    public ParticleSystem death;
     void Start()
     {
         lifePoints = 1;
@@ -80,6 +81,8 @@ public class Health : MonoBehaviour
     
     private void Die()
     {
-        Destroy(this.gameObject);
+        death.Play();
+        Destroy(gameObject, 0.1f);
+        
     }
 }
