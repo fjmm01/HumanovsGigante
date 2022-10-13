@@ -26,15 +26,13 @@ public class PlayerInput : MonoBehaviour
     public bool leftWallHit;
     public bool rightWallHit;
     private bool canDoubleJump = true;
-    public ParticleSystem dust;
-    public ParticleSystem dust2;
+    public ParticleSystem trail;
 
     void Start() 
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        dust = GetComponentInChildren<ParticleSystem>();
-        dust2 = GetComponentInChildren<ParticleSystem>();
-        
+
+        trail.Play();
 
 
     }
@@ -62,17 +60,14 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
-                    dust.Stop();
-                    dust2.Stop();
-
+                    
 
 
                 }
                 else
                 {
                     rigidbody2D.velocity = new Vector2(-this.maxSpeed, rigidbody2D.velocity.y);
-                    dust.Stop();
-                    dust2.Stop();
+                    
                 }
             }
             if(isSprinting) 
@@ -80,14 +75,12 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSprintSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration * 1.5f, 0.0f));
-                    dust.Play();
-                    dust2.Stop();
+                   
                 }
                 else
                 {
                     rigidbody2D.velocity = new Vector2(-this.maxSprintSpeed, rigidbody2D.velocity.y);
-                    dust.Stop();
-                    dust2.Stop();
+                    
                 }
             }
             
@@ -99,14 +92,12 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x < this.maxSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(this.acceleration, 0.0f));
-                    dust.Stop();
-                    dust2.Stop();
+                    
                 }
                 else
                 {
                     rigidbody2D.velocity = new Vector2(this.maxSpeed, rigidbody2D.velocity.y);
-                    dust.Stop();
-                    dust2.Stop();
+                    
                 }
             }
             else if(isSprinting)
@@ -114,15 +105,12 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x < this.maxSprintSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(this.acceleration * 1.5f, 0.0f));
-                    dust.transform.rotation = Quaternion.Euler(180,0, 0);
-                    dust2.Play();
-                    dust.Stop();
+                    
                 }
                 else
                 {
                     rigidbody2D.velocity = new Vector2(this.maxSprintSpeed, rigidbody2D.velocity.y);
-                    dust.Stop();
-                    dust2.Stop();
+                   
                 }
             }
             
