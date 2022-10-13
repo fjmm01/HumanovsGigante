@@ -4384,16 +4384,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &1450064160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6946005413127683723, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-  m_PrefabInstance: {fileID: 1998561148}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1568782574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2755336551737528525, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-  m_PrefabInstance: {fileID: 1998561148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1863228142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,6 +4436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2269201258169903119, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 69afa17ae50df60439e77ace2cd607be, type: 3}
     - target: {fileID: 2269201259911765028, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4518,6 +4512,22 @@ PrefabInstance:
       propertyPath: maxSprintSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2269201259911765034, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5950508
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269201259911765034, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
+      propertyPath: m_Size.y
+      value: 0.85046697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269201259911765034, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0108857155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269201259911765034, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.030480027
+      objectReference: {fileID: 0}
     - target: {fileID: 8425662153805804607, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: time
       value: 5
@@ -4525,11 +4535,11 @@ PrefabInstance:
     - target: {fileID: 8425662153805804607, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: shieldBack
       value: 
-      objectReference: {fileID: 1568782574}
+      objectReference: {fileID: 0}
     - target: {fileID: 8425662153805804607, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: shieldFront
       value: 
-      objectReference: {fileID: 1450064160}
+      objectReference: {fileID: 0}
     - target: {fileID: 8794763325758357575, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.015999999
