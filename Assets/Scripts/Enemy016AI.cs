@@ -39,7 +39,7 @@ public class Enemy016AI : MonoBehaviour
         Debug.Log(distToPoint);
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
 
-        if(distToPoint  < 0.1f)
+        if(distToPoint  < 0.5f)
         {
             ChooseOtherWaypoint();
         }
