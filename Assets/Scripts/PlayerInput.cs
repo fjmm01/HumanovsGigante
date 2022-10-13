@@ -175,7 +175,7 @@ public class PlayerInput : MonoBehaviour
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2((this.jumpSpeed / 2) * wallHitDirection, this.jumpSpeed);
+                        rigidbody2D.velocity = new Vector2((jumpSpeed) * wallHitDirection, jumpSpeed);
 
                         jumpDur = 0.0f;
                         canVariableJump = true;
