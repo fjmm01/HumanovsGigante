@@ -63,7 +63,8 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration, 0.0f));
-                   
+                    
+
 
 
 
@@ -79,7 +80,8 @@ public class PlayerInput : MonoBehaviour
                 if (rigidbody2D.velocity.x > -this.maxSprintSpeed)
                 {
                     rigidbody2D.AddForce(new Vector2(-this.acceleration * 1.5f, 0.0f));
-                   
+                    
+
                 }
                 else
                 {
@@ -97,6 +99,7 @@ public class PlayerInput : MonoBehaviour
                 {
                     rigidbody2D.AddForce(new Vector2(this.acceleration, 0.0f));
                     
+
                 }
                 else
                 {
@@ -110,6 +113,7 @@ public class PlayerInput : MonoBehaviour
                 {
                     rigidbody2D.AddForce(new Vector2(this.acceleration * 1.5f, 0.0f));
                     
+
                 }
                 else
                 {
