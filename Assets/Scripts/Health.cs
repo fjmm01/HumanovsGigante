@@ -45,9 +45,8 @@ public class Health : MonoBehaviour
         if(collision.CompareTag("Win"))
         {
             winLevel = true;
-            timer += Time.deltaTime;
-            if(timer > 5)
-            {
+            
+            
                 int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
                 if(nextLevel == 6)
                 {
@@ -58,7 +57,7 @@ public class Health : MonoBehaviour
                     PlayerPrefs.SetInt("ReachedLevel", nextLevel);
                 }
                 SceneManager.LoadScene(nextLevel);
-            }
+            
         }
     }
 

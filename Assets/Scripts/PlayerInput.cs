@@ -27,6 +27,7 @@ public class PlayerInput : MonoBehaviour
     public bool rightWallHit;
     private bool canDoubleJump = true;
     public ParticleSystem trail;
+    public int wallHitDirection;
 
     void Start() 
     {
@@ -144,7 +145,7 @@ public class PlayerInput : MonoBehaviour
                 if(onTheGround ||(canDoubleJump && enableDoubleJump) || wallHitDoubleJumpOverride)
                 {
                     bool wallHit = false;
-                    int wallHitDirection = 0;
+                    wallHitDirection = 0;
 
                     leftWallHit = isOnWallLeft();
                     rightWallHit = isOnWallRight();
