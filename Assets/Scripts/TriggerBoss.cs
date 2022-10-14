@@ -24,7 +24,7 @@ public class TriggerBoss : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if(timer > 60f)
+            if(timer >= 60f)
             {
                 Health.winLevel = true;
             }

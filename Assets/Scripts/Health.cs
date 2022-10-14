@@ -27,6 +27,10 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+        if(winLevel == true)
+        {
+            WinCondition();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,21 +48,23 @@ public class Health : MonoBehaviour
 
         if(collision.CompareTag("Win"))
         {
-            winLevel = true;
-            
-            
-                int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-                if(nextLevel == 6)
-                {
-                    SceneManager.LoadScene(0);
-                }
-                if(PlayerPrefs.GetInt("ReachedLevel",1) < nextLevel)
-                {
-                    PlayerPrefs.SetInt("ReachedLevel", nextLevel);
-                }
-                SceneManager.LoadScene(nextLevel);
+            WinCondition();
             
         }
+    }
+
+    private void WinCondition()
+    {
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevel == 6)
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (PlayerPrefs.GetInt("ReachedLevel", 1) < nextLevel)
+        {
+            PlayerPrefs.SetInt("ReachedLevel", nextLevel);
+        }
+        SceneManager.LoadScene(nextLevel);
     }
 
     private void GetDamage()
