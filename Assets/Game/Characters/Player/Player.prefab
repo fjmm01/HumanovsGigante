@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415648e68c8fa84ab4cdc784e6c6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 14
+  maxSpeed: 7
   maxSprintSpeed: 10
-  acceleration: 15
+  acceleration: 8
   jumpSpeed: 11
   jumpDuration: 150
   enableDoubleJump: 1
@@ -103,6 +103,7 @@ MonoBehaviour:
   leftWallHit: 0
   rightWallHit: 0
   trail: {fileID: 1980161730977931397}
+  wallHitDirection: 0
 --- !u!114 &8425662153805804607
 MonoBehaviour:
   m_ObjectHideFlags: 0

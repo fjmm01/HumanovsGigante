@@ -346,10 +346,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2269201259911765033, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
-      propertyPath: maxSprintSpeed
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26062b9eef3d1cb449aff33b32818280, type: 3}
 --- !u!1001 &1158455715
@@ -4720,7 +4716,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1442780247}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 944670a3b70275346aab90d83a98d36d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
