@@ -8,7 +8,7 @@ public class ChangeBrillo : MonoBehaviour
     public Slider slider;
     public float sliderValue;
     public Image panelBrillo;
-    public Image panelBrillo2;
+    
 
     void Start()
     {
