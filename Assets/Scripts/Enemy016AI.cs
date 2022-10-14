@@ -24,6 +24,7 @@ public class Enemy016AI : MonoBehaviour
     
     void Update()
     {
+        anim.SetFloat("speed", 1);
         Movement();
         if(Time.time > attackTime)
             {
@@ -36,7 +37,6 @@ public class Enemy016AI : MonoBehaviour
     private void Movement()
     {
         distToPoint = Vector3.Distance(transform.position, waypoints[waypointIndex].transform.position);
-        Debug.Log(distToPoint);
         transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
 
         if(distToPoint  < 0.5f)

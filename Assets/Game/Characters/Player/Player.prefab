@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1415648e68c8fa84ab4cdc784e6c6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
-  maxSprintSpeed: 10
-  acceleration: 8
+  maxSpeed: 6
+  maxSprintSpeed: 12
+  acceleration: 3
   jumpSpeed: 11
   jumpDuration: 150
   enableDoubleJump: 1
