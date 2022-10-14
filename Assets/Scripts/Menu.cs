@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
     [SerializeField] Slider brightnessSlider;
+    
+
+    
     private void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
@@ -45,4 +49,5 @@ public class Menu : MonoBehaviour
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
+    
 }

@@ -8,6 +8,7 @@ public class Enemy02IA : MonoBehaviour
     [SerializeField] float nexTimeAttack;
     [SerializeField] Animator anim;
     [SerializeField] GameObject misil;
+    [SerializeField] TriggerBoss trigger;
    
 
     public Vector3 center;
@@ -15,6 +16,7 @@ public class Enemy02IA : MonoBehaviour
     public Vector3 offset;
     void Start()
     {
+        transform.position = new Vector3(0, -5.3f, 0);
         center = new Vector3(transform.position.x, transform.position.y + transform.position.z);
         InvokeRepeating("SpawnMisil", nexTimeAttack, attackTime);
     }
@@ -22,6 +24,11 @@ public class Enemy02IA : MonoBehaviour
     
     void Update()
     {
+        if(trigger.timer >= 10)
+        {
+            anim.SetTrigger("Death");
+            CancelInvoke();
+        }
         
     }
 
@@ -41,11 +48,7 @@ public class Enemy02IA : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(center, spawnBounds);
-        Gizmos.color = Color.red;
-    }
+   
 
 
 }

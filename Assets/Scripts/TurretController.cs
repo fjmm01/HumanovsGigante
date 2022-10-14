@@ -87,7 +87,7 @@ public class TurretController : MonoBehaviour
     {
         if (waypointIndex == waypoints.Length - 1)
         {
-            waypointIndex = 0;
+            waypointIndex = waypointIndex;
         }
         else
         {

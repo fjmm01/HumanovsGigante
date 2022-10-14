@@ -6,7 +6,7 @@ public class TriggerBoss : MonoBehaviour
 {
     [SerializeField] BoxCollider2D trigger;
     [SerializeField] GameObject boss;
-    [SerializeField] float timer;
+    public float timer;
     [SerializeField] GameObject tileMapPinchos;
    
 
@@ -24,7 +24,7 @@ public class TriggerBoss : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if(timer >= 60f)
+            if(timer >= 35f)
             {
                 Health.winLevel = true;
             }
